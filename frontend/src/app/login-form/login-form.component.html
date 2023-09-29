@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+    />
+    <link
+      href="https://fonts.cdnfonts.com/css/friday-october-twelve"
+      rel="stylesheet"
+    />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="background-text">
+      <h1>Otvor'Projekt <img src="../assets/logo/logo.png" alt="logoPic" /></h1>
+    </div>
+    <div class="session">
+      <form action="" class="log-in" autocomplete="off">
+        <h4>We are <span>Otvor'Projekt</span></h4>
+        <p>Welcome back!</p>
+        <div class="floating-label">
+          <input
+            placeholder="Username"
+            type="text"
+            name="email"
+            id="username"
+            autocomplete="off"
+            [(ngModel)]="formData.username"
+            required
+          />
+        </div>
+        <div class="floating-label">
+          <input
+            placeholder="Password"
+            type="password"
+            name="password"
+            id="password"
+            autocomplete="off"
+            [(ngModel)]="formData.password"
+            required
+          />
+        </div>
+        <button (click)="onLogin()">Log in</button>
+      </form>
+    </div>
+  </body>
+</html>

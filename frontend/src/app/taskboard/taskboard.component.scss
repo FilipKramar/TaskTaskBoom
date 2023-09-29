@@ -1,0 +1,150 @@
+/* Define variables for colors */
+$primary-color: rgba(82, 60, 106, 0.7);
+$background-color: #f2f2f2;
+
+/* Global styles */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+/* Grid container styles */
+.grid-container {
+  position: relative;
+  top: 80px;
+  left: 180px;
+  right: 0;
+  bottom: 0;
+  height: auto;
+  background-color: $background-color;
+  width: auto;
+  overflow: auto;
+  padding: 20px; /* Adjust padding as needed */
+  margin-left: 15%;
+  margin-right: 15%;
+}
+
+/* Table styles */
+.custom-table {
+  width: 100%;
+  border-collapse: collapse;
+  th,
+  td {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+  th {
+    background-color: $background-color;
+  }
+}
+
+/* Button styles */
+.add-button {
+  background-color: $primary-color;
+  color: white;
+  border: none;
+  cursor: pointer;
+  padding: 8px 12px;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: darken($primary-color, 10%);
+  }
+}
+
+/* Cell styles */
+.story-cell,
+.task-cell {
+  display: flex;
+  align-items: center;
+
+  /* Add margin or padding as needed */
+  margin: 5px 0;
+  input[type="text"] {
+    border: 1px solid #ddd;
+    padding: 6px;
+    border-radius: 4px;
+    margin-right: 10px; /* Add spacing between input and button */
+  }
+}
+
+/* Story footer styles */
+.story-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+
+/* Status styles (you can customize these) */
+.status {
+  font-weight: bold;
+  color: #ff5733; /* Customize the color */
+}
+
+/* Story ID styles (you can customize these) */
+.id {
+  margin-bottom: 10px;
+  a {
+    text-decoration: none;
+    color: $primary-color; /* Use the primary color */
+    font-weight: bold;
+  }
+}
+
+.assigned_to_id a {
+  text-decoration: none;
+  color: $primary-color; /* Use the primary color */
+  font-weight: bold;
+  margin-right: 15px;
+}
+
+/* Complexity styles (you can customize these) */
+.complexity {
+  font-style: italic;
+  color: #777; /* Customize the color */
+}
+
+/* Add more styling as needed */
+
+/* Ensure each story component is displayed one underneath the other */
+.story-cell {
+  flex-direction: column;
+}
+.subject {
+  text-align: center;
+  word-break: break-word;
+  margin-left: 25%;
+  margin-right: 25%;
+}
+
+textarea,
+select {
+  margin-bottom: 10px;
+  font-size: 16px;
+  padding: 15px 5px;
+  height: 56px;
+  border: solid 1px rgba(0, 0, 0, 0.1);
+  background: rgba($primary-color, 0.45);
+  width: 280px;
+  box-sizing: border-box;
+  transition: all 0.3s linear;
+  color: #000000;
+  font-weight: 400;
+}
+
+input {
+  background-color: rgba($primary-color, 0.45);
+}
+
+ul {
+  li {
+    margin-bottom: 10px;
+    list-style-type: none;
+    word-break: break-word;
+    max-width: 75%;
+    border: 1px solid black;
+  }
+}

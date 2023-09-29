@@ -1,0 +1,95 @@
+<app-header></app-header>
+<app-navbar></app-navbar>
+<div class="grid-container">
+    <div class="grid-item item1" ><p *ngFor="let d of data">Welcome {{d.username}}</p></div>
+    <div class="grid-item item2" > <button (click)="goNewTask()">Create New Task</button> </div>
+    <div class="grid-item item3">
+        <div class="task"><p>MY OPEN TASKS</p></div>
+        <table cTable>
+            <thead>
+            
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Description</th>
+                <th scope="col">Assignee</th>
+                <th scope="col">Status</th>
+              </tr>
+              
+            </thead>
+            <tbody>
+              <tr *ngFor="let d of data">
+                <td>{{d.id}}</td>
+                <td>{{d.description}}</td>
+                <td>{{d.username}}</td>
+                <td>{{d.status}} </td>
+              </tr>
+
+              <tr>
+                <td>1</td>
+                <td>Make a presentation</td>
+                <td>VPavlik</td>
+                <td>In progress</td>
+              </tr>
+            </tbody>
+          </table>
+
+
+    </div>
+    <div class="grid-item item4" style="color: purple;">
+        <p>USERSTORY</p>
+        <table cTable>
+            <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Username</th>
+                <th scope="col">Status</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let d of dataUserStory">
+              <td>{{d.id}}</td>
+              <td>{{d.name}}</td>
+              <td>{{d.username}}</td>
+              <td>{{d.currentStage}}</td>
+            </tr>
+            
+            <tr>
+              <td>2</td>
+              <td>Work</td>
+              <td>VPavlik</td>
+              <td>NEW</td>
+            </tr>
+
+            </tbody>
+          </table>
+    </div>
+    <div class="grid-item item5">
+        <p>ALL TASKS</p>
+        <table cTable>
+            <thead>
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Description</th>
+                <th scope="col">Assignee</th>
+                <th scope="col">Status</th>
+              </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let task of data1"  [routerLink]="['/edit', task.id]">
+              <td>{{task.id}}</td>
+              <td>{{task.description}}</td>
+              <td>{{task.username}}</td>
+              <td>{{task.status}}</td>
+            </tr>
+
+            <tr>
+              <td>1</td>
+              <td>Create a project</td>
+              <td>VPavlik</td>
+              <td>NEW</td>
+            </tr>
+            </tbody>
+          </table>
+    </div>
+  </div>

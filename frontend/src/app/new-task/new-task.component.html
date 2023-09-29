@@ -1,0 +1,55 @@
+<app-header></app-header>
+<app-navbar></app-navbar>
+
+<div class="container">
+    <form>
+      <div class="row">
+        <h2>Create a new task</h2>
+      </div>
+      
+      <div class="row one">
+        <div class="col-20">
+          <label for="description">Description:</label>
+        </div>
+        <div class="col-80">
+          <textarea type="textarea" id="description" name="description" [(ngModel)]="descriptionPost" placeholder="Write something.." ></textarea>        </div>
+      </div>
+
+        <div class="row two">
+            <div class="col-20">
+                <label for="priority">Priority:</label>
+            </div>
+            <div class="col-80">
+              <select id="priority" name="priority" [(ngModel)]="priorityPost" >
+                <option value="low">Low</option>
+                <option value="medium">Medium</option>
+                <option value="high">High</option>
+              </select>
+            </div>
+        </div>
+
+      <div class="row two">
+        <div class="col-20">
+            <label for="users">Users:</label>
+        </div>
+        <div class="col-80">
+          <select id="users" name="users" [(ngModel)]="usersPost" value="">
+            <option value="null">None</option>
+            <option value="5">Filip K.</option>
+            <option value="6">Ivan S.</option>
+            <option value="8">Filip L.</option>
+            <option value="7">Jurica J.</option>
+            <option value="4">Veronika P.</option>
+            <option value="9">Renato D.</option>
+
+          </select>
+        </div>
+    </div>
+    
+        <br>
+
+        <div class="row center-content">
+          <button (click)="postData()">Submit</button>
+        </div>
+    </form>
+</div>

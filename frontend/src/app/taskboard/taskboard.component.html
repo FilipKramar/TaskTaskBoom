@@ -1,0 +1,85 @@
+<app-header></app-header>
+<app-navbar></app-navbar>
+<div class="grid-container">
+  <table class="custom-table">
+    <thead>
+      <tr>
+        <th>
+          Story
+          <div class="add-story-button-container">
+            <button class="add-button" (click)="addStory()">Add Story</button>
+          </div>
+        </th>
+        <th>New Tasks</th>
+        <th>In Progress</th>
+        <th>Closed</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let story of stories; let i = index">
+        <td>
+          <div class="story-cell">
+            <div class="status">{{ story.status }}</div>
+            <div class="id">
+              <a href="">{{ story.id }}</a>
+            </div>
+            <div class="subject">{{ story.subject }}</div>
+            <div class="story-footer">
+              <div class="assigned_to_id">
+                <a href="">{{ story.assigned_to_id }}</a>
+              </div>
+              <div class="complexity">{{ story.complexity }}</div>
+            </div>
+          </div>
+        </td>
+        <td>
+          <div class="task-cell">
+            <div class="container">
+              <form (submit)="addTask(i)">
+                <div class="row one">
+                  <div class="col-20">
+                    <label for="description">Description</label>
+                  </div>
+                  <div class="col-80">
+                    <textarea
+                      id="description"
+                      name="description"
+                      placeholder="Write a task.."
+                      [(ngModel)]="tasks[i]"
+                    ></textarea>
+                  </div>
+                </div>
+
+                <div class="row two">
+                  <div class="col-20">
+                    <label for="priority">Priority:</label>
+                  </div>
+                  <div class="col-80">
+                    <select id="priority" name="priority">
+                      <option value="low">Low</option>
+                      <option value="medium">Medium</option>
+                      <option value="high">High</option>
+                    </select>
+                  </div>
+                </div>
+
+                <br />
+                <div class="row center-content">
+                  <input type="submit" value="Add task" />
+                </div>
+              </form>
+            </div>
+
+            <!-- <button class="add-button" (click)="addTask(i)">Add Task</button> -->
+          </div>
+          <ul>
+            <li *ngFor="let task of stories[i].tasks">{{ task }}</li>
+          </ul>
+        </td>
+
+        <td></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

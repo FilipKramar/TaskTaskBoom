@@ -1,0 +1,91 @@
+<app-header></app-header>
+<app-navbar></app-navbar>
+
+<div class="container">
+    <form>
+      <div class="row">
+        <h2>Edit Task</h2>
+      </div>
+      
+      <div class="row one">
+        <div class="col-20">
+          <label for="taskId">Task ID:</label>
+        </div>
+        <div class="col-80">
+          <input type="textarea" id="taskId" [(ngModel)]="taskId" readonly [value]="taskId">
+        </div>
+      </div>
+      
+      
+      <div class="row one">
+        <div class="col-20">
+          <label for="description">Description:</label>
+        </div>
+        <div class="col-80">
+          <textarea type="textarea" id="description" name="description" [(ngModel)]="descriptionEditPut" value=""></textarea>
+        </div>
+      </div>
+
+        <div class="row two">
+            <div class="col-20">
+                <label for="priority">Priority:</label>
+            </div>
+            <div class="col-80">
+              <select id="priority" name="priority" [(ngModel)]="priorityEditPut" value="">
+                <option value="LOW">Low</option>
+                <option value="MEDIUM">Medium</option>
+                <option value="HIGH">High</option>
+              </select>
+            </div>
+        </div>
+
+        <div class="row one">
+          <div class="col-20">
+              <label for="statusEditPut">Status:</label>
+          </div>
+          <div class="col-80">
+            <select id="status" name="statusEditPut" [(ngModel)]="statusEditPut" value="">
+              <option value="NEW">New</option>
+              <option value="IN_PROGRESS">In progress</option>
+              <option value="CLOSED">Closed</option>
+              <option value="ON_HOLD">On hold</option>
+              <option value="REJECTED">Rejected</option>
+            </select>
+          </div>
+      </div>
+
+      <div class="row two">
+        <div class="col-20">
+            <label for="users">Users:</label>
+        </div>
+        <div class="col-80">
+          <select id="users" name="users" [(ngModel)]="usersEditPut" value="">
+            <option value="null">None</option>
+            <option value="1">John Doe</option>
+            <option value="5">Filip K.</option>
+            <option value="6">Ivan S.</option>
+            <option value="8">Filip L.</option>
+            <option value="7">Jurica J.</option>
+            <option value="4">Veronika P.</option>
+            <option value="9">Renato D.</option>
+          </select>
+        </div>
+    </div>
+
+    <div class="row one">
+      <div class="col-20">
+        <label for="complexity">Complexity:</label>
+      </div>
+      <div class="col-80">
+        <input type="input" id="complexity" [(ngModel)]="complexityEditPut" [value]="complexityEditPut">
+      </div>
+    </div>
+    
+        <br>
+
+        <div class="row center-content">
+          <button (click)="putEditData()">Edit</button>
+          <a routerLink="/home"><button>Back to home</button></a>
+        </div>
+    </form>
+</div>
