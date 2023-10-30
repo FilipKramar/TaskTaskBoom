@@ -1,0 +1,25 @@
+$background: white;
+
+$third-color: rgb(106, 8, 211);
+$colortext: rgb(82, 60, 106);
+$fontsize-no-active: 16px;
+$fontsize-active: 19px;
+
+$primary-color: rgba(82, 60, 106, 0.7) /*#D5C5E7*/;
+$secondary-color: rgb(195, 195, 195) /*#2C0954*/;
+
+.grid-container {
+  position: inherit;
+  left: 180px;
+  top: 80px;
+  right: 0px;
+  bottom: 0px;
+  height: fit-content;
+  
+  width: auto;
+  overflow: auto;
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 15px;
+  padding: 13px;
+}

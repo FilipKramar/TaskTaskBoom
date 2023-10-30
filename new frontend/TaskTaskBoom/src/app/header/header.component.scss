@@ -1,0 +1,17 @@
+.example-spacer {
+    flex: 1 1 auto;
+  }
+
+  .fixed-toolbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    color: black;
+    background-color: #fff;
+  }
+
+  .logo{
+    height: 50px;
+  }
+  
