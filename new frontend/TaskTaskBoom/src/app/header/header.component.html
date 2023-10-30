@@ -1,5 +1,25 @@
-<mat-toolbar fxLayout="row" fxLayout.xs="row" fxLayoutAlign="space-between center" class="fixed-toolbar">
-  <div routerLink="home"><img src="../../assets/logo.png" class="logo"></div>
-  <div> TaskTaskBoom</div>
-  <div> User</div>
+<mat-toolbar
+  fxLayout="row"
+  fxLayout.xs="row"
+  fxLayoutAlign="space-between center"
+  class="fixed-toolbar"
+>
+  <div fxLayout="row">
+    <button
+      *ngIf="isHandset$ | async"
+      type="button"
+      aria-label="Toggle sidenav"
+      mat-icon-button
+      (click)="toggleNav()"
+    >
+      <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+    </button>
+    <div routerLink="/home/dashboard">
+      <img src="../../assets/logo.png" class="logo" />
+    </div>
+  </div>
+
+  <div>TaskTaskBoom</div>
+  <div>User</div>
 </mat-toolbar>
+

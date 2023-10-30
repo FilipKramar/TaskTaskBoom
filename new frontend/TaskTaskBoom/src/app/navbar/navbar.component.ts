@@ -1,20 +1,21 @@
 import { Component, inject } from '@angular/core';
-import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
-import { map, shareReplay } from 'rxjs/operators';
+
+import { NavbarService } from '../services/navbar.service';
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.scss']
+  styleUrls: ['./navbar.component.scss'],
 })
 export class NavbarComponent {
-  private breakpointObserver = inject(BreakpointObserver);
+  isHandset$: Observable<boolean>;
+  isNavOpen?: boolean;
 
-  isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
-    .pipe(
-      map(result => result.matches),
-      shareReplay(),
-      
-    );
+  constructor(private navbarService: NavbarService) {
+    this.isHandset$ = this.navbarService.isHandset$;
+    this.navbarService.getNavState().subscribe((isOpen) => {
+      this.isNavOpen = isOpen;
+    });
+  }
 }

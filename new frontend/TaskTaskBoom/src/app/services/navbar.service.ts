@@ -1,19 +1,28 @@
-import { Injectable } from '@angular/core';
-import { Subject, Observable } from 'rxjs';
+import { Injectable, inject } from '@angular/core';
+import { BehaviorSubject, Observable } from 'rxjs';
 
-@Injectable()
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { map, shareReplay } from 'rxjs/operators';
+
+@Injectable({
+  providedIn: 'root',
+})
 export class NavbarService {
-  private toggleSidenavSource = new Subject<void>();
-  private isSideNavOpen$ = new Subject<boolean>();
+  private breakpointObserver = inject(BreakpointObserver);
+  isHandset$: Observable<boolean> = this.breakpointObserver
+    .observe(Breakpoints.Handset)
+    .pipe(
+      map((result) => result.matches),
+      shareReplay()
+    );
 
-  toggleSidenav$ = this.toggleSidenavSource.asObservable();
-  isSideNavOpenObs$: Observable<boolean> = this.isSideNavOpen$.asObservable();
+  private isNavOpen$ = new BehaviorSubject<boolean>(false);
 
-  toggleSidenav() {
-    this.toggleSidenavSource.next();
+  toggleNavState(isOpen: boolean) {
+    this.isNavOpen$.next(isOpen);
   }
 
-  setIsSideNavOpen(isOpen: boolean) {
-    this.isSideNavOpen$.next(isOpen);
+  getNavState() {
+    return this.isNavOpen$.asObservable();
   }
 }

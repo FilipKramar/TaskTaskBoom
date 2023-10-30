@@ -19,6 +19,10 @@ import { HeaderComponent } from './header/header.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
 import { MembersComponent } from './members/members.component';
 
 
@@ -33,7 +37,7 @@ import { MembersComponent } from './members/members.component';
     HeaderComponent,
     LoginComponent,
     DashboardComponent,
-    MembersComponent
+    MembersComponent,
   ],
   imports: [
     BrowserModule,
@@ -45,7 +49,10 @@ import { MembersComponent } from './members/members.component';
     MatSidenavModule,
     MatIconModule,
     MatListModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule
   ],
   providers: [],
   bootstrap: [AppComponent]
