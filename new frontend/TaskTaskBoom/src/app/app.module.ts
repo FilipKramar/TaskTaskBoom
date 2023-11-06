@@ -19,11 +19,14 @@ import { HeaderComponent } from './header/header.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-
+import {MatGridListModule} from '@angular/material/grid-list';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MembersComponent } from './members/members.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { LoginformComponent } from './loginform/loginform.component';
 
 
 @NgModule({
@@ -38,6 +41,7 @@ import { MembersComponent } from './members/members.component';
     LoginComponent,
     DashboardComponent,
     MembersComponent,
+    LoginformComponent,
   ],
   imports: [
     BrowserModule,
@@ -52,7 +56,11 @@ import { MembersComponent } from './members/members.component';
     FlexLayoutModule,
     MatTableModule,
     MatPaginatorModule,
-    MatSortModule
+    MatSortModule,
+    MatGridListModule,
+    ReactiveFormsModule,
+    HttpClientModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

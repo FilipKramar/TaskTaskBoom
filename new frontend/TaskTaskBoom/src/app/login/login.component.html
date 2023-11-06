@@ -1,1 +1,18 @@
-<p routerLink="home">login works!</p>
+<div class="content">
+  <div class="background-text">
+    <h1>TaskTaskBoom <img src="../../assets/logo.png" class="logo" /></h1>
+  </div>
+  <div class="session">
+    <form
+      action=""
+      class="log-in"
+      autocomplete="off"
+      [formGroup]="loginFormGroup"
+    >
+      <app-loginform
+        [loginFormGroup]="loginFormGroup"
+        (dataSubmitted)="onLogin($event)"
+      ></app-loginform>S
+    </form>
+  </div>
+</div>
