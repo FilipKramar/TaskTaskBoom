@@ -17,7 +17,7 @@ import { MatListModule } from '@angular/material/list';
 import { NavbarComponent } from './navbar/navbar.component';
 import { HeaderComponent } from './header/header.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { LoginComponent } from './login/login.component';
+import { LoginComponent } from './loginpage/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import {MatGridListModule} from '@angular/material/grid-list';
 import { MatTableModule } from '@angular/material/table';
@@ -27,6 +27,7 @@ import { MembersComponent } from './members/members.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginformComponent } from './loginform/loginform.component';
+import { RegisterformComponent } from './registerform/registerform.component';
 
 
 @NgModule({
@@ -42,6 +43,7 @@ import { LoginformComponent } from './loginform/loginform.component';
     DashboardComponent,
     MembersComponent,
     LoginformComponent,
+    RegisterformComponent,
   ],
   imports: [
     BrowserModule,

@@ -7,7 +7,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./loginform.component.scss'],
 })
 export class LoginformComponent {
-  @Input() loginFormGroup: FormGroup = new FormGroup({
+  loginFormGroup: FormGroup = new FormGroup({
     username: new FormControl('', Validators.required),
     password: new FormControl('', Validators.required),
   });
@@ -19,8 +19,6 @@ export class LoginformComponent {
   collectFormData() {
     const username = this.loginFormGroup.get('username')?.value;
     const password = this.loginFormGroup.get('password')?.value;
-
-    // Emit an event with the form data
     this.dataSubmitted.emit({ username, password });
   }
 }

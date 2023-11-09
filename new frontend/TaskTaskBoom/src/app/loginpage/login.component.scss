@@ -1,0 +1,41 @@
+
+$primary: rgb(82, 60, 106);
+
+.content {
+  height: 100vh;
+  width: 100vw;
+  margin: 0 0;
+  padding: 0 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  text-align: center;
+  background-color: lightcyan;
+}
+
+
+.background-text {
+  padding-top: 20%;
+  h1,
+  img {
+    -webkit-text-fill-color: $primary;
+    display: inline-block;
+    vertical-align: middle;
+    padding-left: 5%;
+    font-size: 100px;
+    font-family: "Friday October Twelve", sans-serif;
+    color: rgba(#4d4d4d, 1);
+  }
+}
+
+
+.session {
+  display: flex;
+  flex-direction: row;
+  width: fit-content;
+  height: fit-content;
+  margin: auto auto;
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0px 2px 6px -1px rgba(0, 0, 0, 0.12);
+}

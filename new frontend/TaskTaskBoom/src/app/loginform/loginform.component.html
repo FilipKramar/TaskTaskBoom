@@ -1,7 +1,10 @@
+
+<div class="content">
+<p routerLink="/register">login works!</p>
 <h4>We are <span>TaskTaskBoom</span></h4>
 <p>Welcome back!</p>
 <form [formGroup]="loginFormGroup">
-  <div class="floating-label">
+  <div class="loginform">
     <input placeholder="Username" type="text" [formControlName]="'username'" />
   </div>
   <div class="floating-label">
@@ -12,4 +15,6 @@
     />
   </div>
   <button (click)="collectFormData()">Log in</button>
+  <button routerLink="/home">Skip no database</button>
 </form>
+</div>

@@ -48,22 +48,19 @@ public class UserService {
     }
 
 
-    public List<User> registerUsers(List<UserRegistrationDTO> request) {
-        List<User> registerUsers = new ArrayList<>();
-
-        for (UserRegistrationDTO registrationDTO : request) {
+    public User registerUsers(UserRegistrationDTO request) {
             User user = User.builder()
-                    .username(registrationDTO.getUsername())
-                    .password(registrationDTO.getPassword())
-                    .firstName(registrationDTO.getFirstName())
-                    .lastName(registrationDTO.getLastName())
+                    .username(request.getUsername())
+                    .password(request.getPassword())
+                    .firstName(request.getFirstName())
+                    .lastName(request.getLastName())
                     .build();
 
             userRepository.save(user);
-            registerUsers.add(user);
+        return user;
         }
-        return registerUsers;
+
 
     }
 
-}
+
