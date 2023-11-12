@@ -1,10 +1,9 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
-import { apiUrl } from '../enviroments/enviroments';
 import { LoginformComponent } from '../loginform/loginform.component';
 import { RegisterformComponent } from '../registerform/registerform.component';
-import { ApirequestserviceService } from '../services/apirequestservice.service';
+import { ApirequestService } from '../services/apirequestservice.service';
 
 @Component({
   selector: 'app-login',
@@ -15,7 +14,7 @@ export class LoginComponent {
   constructor(
     private http: HttpClient,
     private router: Router,
-    private apiRequestService: ApirequestserviceService
+    private apiRequestService: ApirequestService
   ) {}
   onLogin(componentReference: any) {
     if (componentReference instanceof LoginformComponent) {

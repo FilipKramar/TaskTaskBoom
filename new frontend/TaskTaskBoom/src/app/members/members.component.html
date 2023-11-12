@@ -20,14 +20,14 @@
                 <th scope="col">Pavlik</th>
               </tr>
         </tbody>
-        <!-- <tbody>
-          <tr *ngFor="let d of dataUser">
-            <td>{{d.id}}</td>
-            <td>{{d.username}}</td>
-            <td>{{d.firstName}}</td>
-            <td>{{d.lastName}}</td>
+        <tbody>
+          <tr *ngFor="let user of members$ | async">
+            <td>{{user.id}}</td>
+            <td>{{user.username}}</td>
+            <td>{{user.firstName}}</td>
+            <td>{{user.lastName}}</td>
           </tr>
-        </tbody> -->
+        </tbody>
     </table>
 
 </div>

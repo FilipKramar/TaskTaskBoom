@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ApirequestService } from '../services/apirequestservice.service';
 
 @Component({
   selector: 'app-members',
@@ -6,5 +7,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./members.component.scss']
 })
 export class MembersComponent {
+  members$ = this.apiRequestService.getAllMembers();
+
+  constructor(private apiRequestService:ApirequestService){}
+
+
+
 
 }
