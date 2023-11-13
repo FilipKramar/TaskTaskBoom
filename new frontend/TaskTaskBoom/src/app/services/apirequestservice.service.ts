@@ -17,7 +17,6 @@ export class ApirequestService {
     this.http.post<number>(url, data).subscribe(
       (Id: number) => {
         this.router.navigate(['/home']);
-        console.log(Id);
         this.userId = Id;
       },
       (error) => {
@@ -41,7 +40,25 @@ export class ApirequestService {
   getAllMembers(): Observable<any> {
     const url = `${apiUrl.key}users`;
     return this.http.get<any>(url);
-
   }
- 
+
+  getMyTasks(): Observable<any> {
+    const url = `${apiUrl.key}usertasks/${this.userId}`;
+    return this.http.get<any>(url);
+  }
+
+  getAllTasks(): Observable<any> {
+    const url = `${apiUrl.key}usertasks`;
+    return this.http.get<any>(url);
+  }
+
+  getTask(taskId: number): Observable<any> {
+    const url = `${apiUrl.key}tasks`;
+    return this.http.get<any>(url);
+  }
+
+  getAllUserstory(): Observable<any> {
+    const url = `${apiUrl.key}userstories`;
+    return this.http.get<any>(url);
+  }
 }

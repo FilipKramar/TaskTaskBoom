@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-openuserstories',
@@ -6,5 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./openuserstories.component.scss']
 })
 export class OpenuserstoriesComponent {
+
+  @Input() userstories:any;
 
 }
