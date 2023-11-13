@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class ApirequestService {
-  userId: number = 0;
+  userId:any=sessionStorage.getItem('userid');
 
   constructor(private http: HttpClient, private router: Router) {}
 
@@ -17,7 +17,8 @@ export class ApirequestService {
     this.http.post<number>(url, data).subscribe(
       (Id: number) => {
         this.router.navigate(['/home']);
-        this.userId = Id;
+        sessionStorage.setItem('userid', Id.toString());
+        
       },
       (error) => {
         alert('Wrong username or password');

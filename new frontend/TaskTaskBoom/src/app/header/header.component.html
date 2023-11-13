@@ -6,6 +6,7 @@
   color="primary"
 >
   <div fxLayout="row">
+    <div class="menu">
     <button
       *ngIf="isHandset$ | async"
       type="button"
@@ -13,8 +14,9 @@
       mat-icon-button
       (click)="toggleNav()"
     >
-      <mat-icon aria-label="Side nav toggle icon">Menu</mat-icon>
+    <mat-icon>menu</mat-icon>
     </button>
+  </div>
     <div routerLink="/home/dashboard">
       <img src="../../assets/logo.png"  class="logo" />
     </div>

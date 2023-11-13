@@ -30,6 +30,7 @@ import { LoginformComponent } from './loginform/loginform.component';
 import { RegisterformComponent } from './registerform/registerform.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,

@@ -10,13 +10,18 @@
   z-index: 1000;
 }
 
-.sidenav .mat-toolbar {
- background-color: lightcoral;
-}
-
 .mat-toolbar.mat-primary {
   position: sticky;
-  top: 0;
-  z-index: 1;
+  top: 0; 
+  z-index: 0;
 }
 
+.mat-drawer{
+  background-color: #4a148c;
+  
+}
+
+:host ::ng-deep .mdc-list-item__primary-text {
+  color: #ffff;
+  font-size: larger;
+}
