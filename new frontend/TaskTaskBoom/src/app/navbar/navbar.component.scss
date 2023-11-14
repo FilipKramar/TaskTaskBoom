@@ -1,3 +1,4 @@
+@import '../../my-theme.scss';
 .sidenav-container {
   height: 100%;
 }
@@ -17,11 +18,16 @@
 }
 
 .mat-drawer{
-  background-color: #4a148c;
+  background-color:map-get($my-primary,default);
   
 }
 
 :host ::ng-deep .mdc-list-item__primary-text {
   color: #ffff;
   font-size: larger;
+}
+:host ::ng-deep .mat-list-item-active .mdc-list-item__primary-text {
+ 
+  color: #ffcc00 !important; 
+  font-weight: bold; 
 }

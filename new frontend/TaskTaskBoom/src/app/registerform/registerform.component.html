@@ -1,7 +1,5 @@
-<p routerLink="/login">registerform works!</p>
+<h4>Welcome to <span>TaskTaskBoom</span></h4>
 
-<h4>We are <span>TaskTaskBoom</span></h4>
-<p>Welcome back!</p>
 <form [formGroup]="loginFormGroup"> 
   <div>First Name:</div>
   <div class="floating-label">
@@ -35,5 +33,9 @@
       [formControlName]="'password'"
     />
   </div>
-  <button (click)="collectFormData()">Log in</button>
+  <button (click)="collectFormData()">Register Account</button>
+
+  <div class="register">
+    <a mat-button routerLink="/login" >Already have an account?</a>
+  </div>
 </form>

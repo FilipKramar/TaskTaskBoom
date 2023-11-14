@@ -1,12 +1,6 @@
-$background: white;
-$third-color: rgb(106, 8, 211);
-$colortext: rgb(82, 60, 106);
-$fontsize-no-active: 16px;
-$fontsize-active: 19px;
 
-$primary-color: rgba(122, 91, 156, 0.7) /*#D5C5E7*/;
-$secondary-color: rgb(195, 195, 195) /*#2C0954*/;
 
+@import '../../my-theme.scss';
 
 .item {
   grid-column: 2;
@@ -16,11 +10,11 @@ $secondary-color: rgb(195, 195, 195) /*#2C0954*/;
   overflow: auto;
   top: 0px;
   background-color: #f2f2f2;
-  bottom: 1px solid $primary-color;
+  bottom: 1px solid #f2f2f2;
   text-align: center;
 
   p {
-    background-color: $colortext;
+    background-color: map-get($my-primary,default);
     color: white;
     padding-left: 10px;
     padding-top: 2px;
@@ -35,26 +29,27 @@ $secondary-color: rgb(195, 195, 195) /*#2C0954*/;
   table {
     height: auto;
     width: 100%;
-    border-collapse: collapse;
-    color: white;
-    
+    background-color: map-get($lighter-primary,default);
     
     
     th {
-      font-size: 17px;
-      background-color: $colortext;
+      font-size: large;
+      color: white;
+      background-color: map-get($my-primary,default);
       text-align: center;
     }
-    tr:hover {
-      background-color: $secondary-color;
-      color: black;
+    tr{
+      color:white;
     }
+    
     td {
       font-size: 17px;
-      border-bottom: 1px solid $primary-color;
-      color:white;
-      background-color: $primary-color;
-      text-align: center;
+      border-bottom: 1px solid white;
+      text-align: center;}
+    
+    tr:hover {
+      background-color: map-get($lighter-primary, 300);
+      color: black;
     }
   }
   

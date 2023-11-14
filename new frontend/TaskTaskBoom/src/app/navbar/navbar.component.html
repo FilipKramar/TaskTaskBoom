@@ -4,11 +4,12 @@
   [mode]="(isHandset$ | async) ? (isNavOpen ? 'side' : 'over') : (isNavOpen ? 'side' : 'side')"
   [opened]="(isHandset$ | async) ? isNavOpen : true" 
   >
-    <mat-nav-list class="nav">
-      <a mat-list-item routerLink="/home/dashboard" routerLinkActive="active" style="color: white !important;">Dashboard</a>
-      <a mat-list-item routerLink="/home/members" routerLinkActive="active">Members</a>
-      <a mat-list-item routerLink="/home/link3" routerLinkActive="active">Link 3</a>
-    </mat-nav-list>
+  <mat-nav-list class="nav">
+    <a mat-list-item routerLink="/home/dashboard" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Dashboard</a>
+    <a mat-list-item routerLink="/home/members" routerLinkActive="active">Members</a>
+    <a mat-list-item routerLink="/home/link3" routerLinkActive="active">Link 3</a>
+  </mat-nav-list>
+  
     
   </mat-sidenav>
   <mat-sidenav-content>

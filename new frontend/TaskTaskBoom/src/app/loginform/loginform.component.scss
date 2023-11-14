@@ -1,4 +1,4 @@
-$primary: rgb(82, 60, 106);
+@import "../../my-theme.scss";
  
 h4 {
   font-size: 24px;
@@ -23,8 +23,12 @@ form {
   align-items: flex-start;
   padding-bottom: 20px;
   width: 75%;
+  .register{
+    margin-top: 5%;
+    
+  }
   h4 {
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     color: rgba(#000, 0.5);
     span {
       color: rgb(82, 60, 106);
@@ -33,13 +37,12 @@ form {
   }
   p {
     line-height: 155%;
-    margin-bottom: 5px;
     font-size: 14px;
     color: #000;
     opacity: 0.65;
     font-weight: 400;
     max-width: 200px;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
   }
 }
 a.discrete {
@@ -62,7 +65,7 @@ button {
   text-align: center;
   padding: 15px 40px;
   margin-top: 5px;
-  background-color: saturate($primary, 30%);
+  background-color: saturate( map-get($my-primary, default), 30%);
   color: #fff;
   font-size: 14px;
   margin-left: auto;
@@ -73,7 +76,7 @@ button {
   outline: 0;
   &:hover {
     transform: translateY(-3px);
-    box-shadow: 0 2px 6px -1px rgba($primary, 0.65);
+    box-shadow: 0 2px 6px -1px rgba( map-get($my-primary, default), 0.65);
     &:active {
       transform: scale(0.99);
     }
@@ -85,15 +88,15 @@ input {
   padding: 20px 5px;
   height: 56px;
   border: solid 1px rgba(0, 0, 0, 0.1);
-  background: rgba($primary, 0.45);
+  background: rgba( map-get($my-primary, default), 0.45);
   width: 280px;
   box-sizing: border-box;
   transition: all 0.3s linear;
   color: #000000;
   font-weight: 400;
   &:focus {
-    border-bottom: solid 1px $primary;
+    border-bottom: solid 1px  map-get($my-primary, default);
     outline: 0;
-    box-shadow: 0 2px 6px -8px rgba($primary, 0.45);
+    box-shadow: 0 2px 6px -8px rgba( map-get($my-primary, default), 0.45);
   }
 }

@@ -10,6 +10,7 @@ import { NavbarService } from '../services/navbar.service';
 export class NavbarComponent {
   isHandset$: Observable<boolean>;
   isNavOpen?: boolean;
+  isActive: boolean = true;
 
   constructor(private navbarService: NavbarService) {
     this.isHandset$ = this.navbarService.isHandset$;
