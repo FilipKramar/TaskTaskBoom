@@ -21,4 +21,5 @@ export class LoginformComponent {
     const password = this.loginFormGroup.get('password')?.value;
     this.dataSubmitted.emit({ username, password });
   }
+
 }

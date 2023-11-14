@@ -8,24 +8,23 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class ApirequestService {
-  userId:any=sessionStorage.getItem('userid');
+  
 
   constructor(private http: HttpClient, private router: Router) {}
 
-  LoginUser(data: any) {
+  loginUser(data: any) {
     const url = `${apiUrl.key}users`;
     this.http.post<number>(url, data).subscribe(
       (Id: number) => {
         this.router.navigate(['/home']);
         sessionStorage.setItem('userid', Id.toString());
-        
       },
       (error) => {
         alert('Wrong username or password');
       }
     );
   }
-  RegisterUser(data: any) {
+  registerUser(data: any) {
     const url = `${apiUrl.key}users/register`;
     this.http.post<void>(url, data).subscribe(
       () => {
@@ -44,7 +43,8 @@ export class ApirequestService {
   }
 
   getMyTasks(): Observable<any> {
-    const url = `${apiUrl.key}usertasks/${this.userId}`;
+    
+    const url = `${apiUrl.key}usertasks/${sessionStorage.getItem('userid')}`;
     return this.http.get<any>(url);
   }
 
@@ -61,5 +61,18 @@ export class ApirequestService {
   getAllUserstory(): Observable<any> {
     const url = `${apiUrl.key}userstories`;
     return this.http.get<any>(url);
+  }
+
+  createATask(data: any) {
+    const url = `${apiUrl.key}tasks`;
+    this.http.post<void>(url, data).subscribe(
+      () => {
+        alert('Task created sucessfuly');
+        this.router.navigate(['/home/dashboard']);
+      },
+      (error) => {
+        alert('Error creating task');
+      }
+    );
   }
 }

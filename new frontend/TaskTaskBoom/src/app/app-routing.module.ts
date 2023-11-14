@@ -6,6 +6,9 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { MembersComponent } from './members/members.component';
 import { LoginformComponent } from './loginform/loginform.component';
 import { RegisterformComponent } from './registerform/registerform.component';
+import { TasksComponent } from './tasks/tasks.component';
+import { CreatetaskComponent } from './createtask/createtask.component';
+import { EdittaskComponent } from './edittask/edittask.component';
 
 const routes: Routes = [
   {
@@ -14,8 +17,7 @@ const routes: Routes = [
     children: [
       { path: '', redirectTo: 'login', pathMatch: 'full' },
       { path: 'login', component: LoginformComponent },
-      { path: 'register', component: RegisterformComponent},
-    
+      { path: 'register', component: RegisterformComponent },
     ],
   },
   {
@@ -24,16 +26,21 @@ const routes: Routes = [
     children: [
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
       { path: 'dashboard', component: DashboardComponent },
-      { path: 'members', component: MembersComponent},
-    
+      { path: 'members', component: MembersComponent },
+      {
+        path: 'task',
+        component: TasksComponent,
+        children: [
+          { path: 'create', component: CreatetaskComponent },
+          { path: 'members', component: EdittaskComponent },
+        ],
+      },
     ],
   },
 ];
 
-
-
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

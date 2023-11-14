@@ -28,6 +28,10 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginformComponent } from './loginform/loginform.component';
 import { RegisterformComponent } from './registerform/registerform.component';
+import { TasksComponent } from './tasks/tasks.component';
+import { CreatetaskComponent } from './createtask/createtask.component';
+import { EdittaskComponent } from './edittask/edittask.component';
+import {MatCardModule} from '@angular/material/card';
 
 
 
@@ -45,6 +49,9 @@ import { RegisterformComponent } from './registerform/registerform.component';
     MembersComponent,
     LoginformComponent,
     RegisterformComponent,
+    TasksComponent,
+    CreatetaskComponent,
+    EdittaskComponent,
   ],
   imports: [
     BrowserModule,
@@ -62,7 +69,8 @@ import { RegisterformComponent } from './registerform/registerform.component';
     MatSortModule,
     MatGridListModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatCardModule
     
   ],
   providers: [],

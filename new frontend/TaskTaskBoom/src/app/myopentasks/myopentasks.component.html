@@ -1,5 +1,9 @@
 <div class="grid-item item">
-  <div class="task"><p>MY OPEN TASKS</p></div>
+  
+
+  <div class="task" fxLayout="row" fxLayoutAlign="space-between center">
+    <p>MY OPEN TASKS</p>
+     <u routerLink="/home/task/create"> Create a new task</u></div>
 
   <table mat-table [dataSource]="mytasks" class="mat-elevation-z8">
     <ng-container matColumnDef="id">

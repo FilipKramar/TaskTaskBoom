@@ -16,6 +16,7 @@ export class DashboardComponent {
     this.apiRequestService.getMyTasks().subscribe(
       (data) => {
         this.tasks = data;
+        sessionStorage.setItem('username',data[0].username);
       },
       (error) => {
         console.error('Error fetching data:', error);
