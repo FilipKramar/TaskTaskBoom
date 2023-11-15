@@ -1,10 +1,11 @@
 <div class="grid-item item">
-  <p>ALL TASKS</p>
-
+  <div class="task">
+  <p >ALL TASKS</p>
+  </div>
   <table mat-table [dataSource]="alltasks" class="mat-elevation-z8">
     <ng-container matColumnDef="id">
       <th mat-header-cell *matHeaderCellDef>ID</th>
-      <td mat-cell *matCellDef="let task" [routerLink]="['/members', task.id]">{{ task.id }}</td>
+      <td mat-cell *matCellDef="let task" [routerLink]="['/home/task/edit', task.id]"> <u>{{ task.id }} </u> </td>
     </ng-container>
 
     <ng-container matColumnDef="description">
@@ -26,3 +27,5 @@
     <tr mat-row *matRowDef="let row; columns: ['id', 'description', 'username', 'status']"></tr>
   </table>
 </div>
+
+

@@ -8,8 +8,6 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class ApirequestService {
-  
-
   constructor(private http: HttpClient, private router: Router) {}
 
   loginUser(data: any) {
@@ -43,18 +41,12 @@ export class ApirequestService {
   }
 
   getMyTasks(): Observable<any> {
-    
     const url = `${apiUrl.key}usertasks/${sessionStorage.getItem('userid')}`;
     return this.http.get<any>(url);
   }
 
   getAllTasks(): Observable<any> {
     const url = `${apiUrl.key}usertasks`;
-    return this.http.get<any>(url);
-  }
-
-  getTask(taskId: number): Observable<any> {
-    const url = `${apiUrl.key}tasks`;
     return this.http.get<any>(url);
   }
 
@@ -72,6 +64,23 @@ export class ApirequestService {
       },
       (error) => {
         alert('Error creating task');
+      }
+    );
+  }
+  getTaskData(taskId: number): Observable<any> {
+    const url = `http://localhost:8080/api/v1/tasks/${taskId}`;
+    return this.http.get<any>(url);
+  }
+
+  editATask(data: any) {
+    const url = `${apiUrl.key}tasks`;
+    this.http.put(url, data).subscribe(
+      ()=> {
+        alert('Task edited sucessfuly');
+        this.router.navigate(['/home/dashboard']);
+      },
+      (error) => {
+        alert('Error editing task');
       }
     );
   }

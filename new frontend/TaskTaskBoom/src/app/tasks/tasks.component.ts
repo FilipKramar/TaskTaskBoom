@@ -6,22 +6,19 @@ import { EdittaskComponent } from '../edittask/edittask.component';
 @Component({
   selector: 'app-tasks',
   templateUrl: './tasks.component.html',
-  styleUrls: ['./tasks.component.scss']
+  styleUrls: ['./tasks.component.scss'],
 })
 export class TasksComponent {
-  constructor(
-    private apiRequestService: ApirequestService
-  ) {}
-  onLogin(componentReference: any) {
+  constructor(private apiRequestService: ApirequestService) {}
+  onTask(componentReference: any) {
     if (componentReference instanceof CreatetaskComponent) {
       componentReference.dataSubmitted.subscribe((data: any) => {
         this.apiRequestService.createATask(data);
       });
     } else if (componentReference instanceof EdittaskComponent) {
-      componentReference.dataSubmitted.subscribe((data: any) => {
-        this.apiRequestService.registerUser(data);
+        componentReference.dataSubmitted.subscribe((data: any) => {
+        this.apiRequestService.editATask(data);
       });
     }
   }
-
 }

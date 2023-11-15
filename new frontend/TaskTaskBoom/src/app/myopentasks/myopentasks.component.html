@@ -8,7 +8,7 @@
   <table mat-table [dataSource]="mytasks" class="mat-elevation-z8">
     <ng-container matColumnDef="id">
       <th mat-header-cell *matHeaderCellDef>ID</th>
-      <td mat-cell *matCellDef="let task">{{ task.id }}</td>
+      <td mat-cell *matCellDef="let task" [routerLink]="['/home/task/edit', task.id]"><u>{{ task.id }} </u></td>
     </ng-container>
 
     <ng-container matColumnDef="description">

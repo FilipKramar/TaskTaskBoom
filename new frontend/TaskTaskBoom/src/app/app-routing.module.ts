@@ -32,7 +32,7 @@ const routes: Routes = [
         component: TasksComponent,
         children: [
           { path: 'create', component: CreatetaskComponent },
-          { path: 'members', component: EdittaskComponent },
+          { path: 'edit/:taskId', component: EdittaskComponent },
         ],
       },
     ],
