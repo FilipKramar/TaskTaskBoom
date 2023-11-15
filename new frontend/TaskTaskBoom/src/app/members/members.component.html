@@ -1,33 +1,33 @@
-<div class="container">
+<div class="grid-item item">
+  <div class="task">
     <h2>List of Users</h2>
-    <table cTable>
-        <thead>
+    <table mat-table [dataSource]="members$ | async" matSort class="mat-elevation-z8">
+  
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef >ID</th>
+        <td mat-cell *matCellDef="let user">{{ user.id }}</td>
+      </ng-container>
+  
 
-          <tr>
-            <th scope="col">ID</th>
-            <th scope="col">Username</th>
-            <th scope="col">First name</th>
-            <th scope="col">Last name</th>
-          </tr>
-          
-        </thead>
-        <tbody>
+      <ng-container matColumnDef="username">
+        <th mat-header-cell *matHeaderCellDef >Username</th>
+        <td mat-cell *matCellDef="let user">{{ user.username }}</td>
+      </ng-container>
+  
 
-            <tr>
-                <th scope="col">1</th>
-                <th scope="col">VPavlik</th>
-                <th scope="col">Veronika</th>
-                <th scope="col">Pavlik</th>
-              </tr>
-        </tbody>
-        <tbody>
-          <tr *ngFor="let user of members$ | async">
-            <td>{{user.id}}</td>
-            <td>{{user.username}}</td>
-            <td>{{user.firstName}}</td>
-            <td>{{user.lastName}}</td>
-          </tr>
-        </tbody>
+      <ng-container matColumnDef="firstName">
+        <th mat-header-cell *matHeaderCellDef >First Name</th>
+        <td mat-cell *matCellDef="let user">{{ user.firstName }}</td>
+      </ng-container>
+  
+      <ng-container matColumnDef="lastName">
+        <th mat-header-cell *matHeaderCellDef >Last Name</th>
+        <td mat-cell *matCellDef="let user">{{ user.lastName }}</td>
+      </ng-container>
+  
+      <tr mat-header-row *matHeaderRowDef="['id', 'username', 'firstName', 'lastName']"></tr>
+      <tr mat-row *matRowDef="let row; columns: ['id', 'username', 'firstName', 'lastName']"></tr>
     </table>
-
 </div>
+
+

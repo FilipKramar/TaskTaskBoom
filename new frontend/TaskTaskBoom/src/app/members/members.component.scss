@@ -1,50 +1,58 @@
-$third-color: rgb(106, 8, 211);
-$colortext: rgb(82, 60, 106);
-$fontsize-no-active: 16px;
-$fontsize-active: 19px;
 
-$primary-color: rgba(82, 60, 106, 0.7) /*#D5C5E7*/;
-$secondary-color: rgb(195, 195, 195);
 
-.container {
-  position: fixed;
-  left: 180px;
-  top: 80px;
-  right: 0px;
-  bottom: 0px;
-  height: auto;
-  background-color: #f2f2f2;
+@import '../../my-theme.scss';
+.task
+{
+  background-color: map-get($my-primary,default);
+  color: white;
+}
+
+.item {
+  
+  height: fit-content;
   width: auto;
   overflow: auto;
-  z-index: -1;
+  top: 0px;
+  background-color: #f2f2f2;
+  bottom: 1px solid #f2f2f2;
+  text-align: center;
 
-  h2 {
-    margin-left: 30px;
-    color: $colortext;
+  p,u {
+    background-color: map-get($my-primary,default);
+    color: white;
+   
+    
+    margin: 0% 3% 0% 3%;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: left;
   }
 
   table {
     height: auto;
-    width: 70%;
-    border-collapse: collapse;
-    background-color: $primary-color;
-    margin-top: 5px;
-    margin-left: 180px;
-    color: white;
+    width: 100%;
+    background-color: map-get($lighter-primary,default);
+    
+    
     th {
-      font-size: 17px;
+      font-size: large;
+      color: white;
+      background-color: map-get($my-primary,default);
+      text-align: center !important;
     }
+    tr{
+      color:white;
+    }
+    
     td {
       font-size: 17px;
-      padding: 15px;
-    }
-    tr {
-      border-bottom: 1px solid black;
-      text-align: center;
-    }
-
-    tbody tr:hover {
-      background-color: $secondary-color;
+      border-bottom: 1px solid white;
+      text-align: center;}
+    
+    tr:hover {
+      background-color: map-get($lighter-primary, 300);
+      color: black;
     }
   }
+  
 }
