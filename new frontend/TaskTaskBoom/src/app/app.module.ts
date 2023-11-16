@@ -32,6 +32,9 @@ import { TasksComponent } from './tasks/tasks.component';
 import { CreatetaskComponent } from './createtask/createtask.component';
 import { EdittaskComponent } from './edittask/edittask.component';
 import {MatCardModule} from '@angular/material/card';
+import { UserstoriesComponent } from './userstories/userstories.component';
+import { CreateuserstoryComponent } from './createuserstory/createuserstory.component';
+import { EdituserstoryComponent } from './edituserstory/edituserstory.component';
 
 
 
@@ -52,6 +55,9 @@ import {MatCardModule} from '@angular/material/card';
     TasksComponent,
     CreatetaskComponent,
     EdittaskComponent,
+    UserstoriesComponent,
+    CreateuserstoryComponent,
+    EdituserstoryComponent,
   ],
   imports: [
     BrowserModule,

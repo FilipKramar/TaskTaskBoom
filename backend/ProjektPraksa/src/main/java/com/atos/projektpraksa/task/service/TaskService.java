@@ -115,8 +115,6 @@ public class TaskService {
     @Transactional
     public UserTask editTaskAssignee(TaskEditAssigneeDTO request) {
         Timestamp timestamp = new Timestamp(System.currentTimeMillis());
-
-        // Fetch the user from the repository
         User user = userRepository.findById(request.getUserid())
                 .orElseThrow(() -> new RuntimeException("User not found with ID: " + request.getUserid()));
 
@@ -128,6 +126,9 @@ public class TaskService {
             UserTask existingUserTask = userTaskOptional.get();
             existingUserTask.setAssignee(user);
             existingUserTask.setLast_edit(timestamp);
+            userTaskRepository.save(existingUserTask);
+            user.getTasks().add(existingUserTask);
+            userRepository.save(user);
             return existingUserTask;
         } else {
             UserTask userTask = UserTask.builder()

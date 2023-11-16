@@ -9,6 +9,9 @@ import { RegisterformComponent } from './registerform/registerform.component';
 import { TasksComponent } from './tasks/tasks.component';
 import { CreatetaskComponent } from './createtask/createtask.component';
 import { EdittaskComponent } from './edittask/edittask.component';
+import { CreateuserstoryComponent } from './createuserstory/createuserstory.component';
+import { EdituserstoryComponent } from './edituserstory/edituserstory.component';
+import { UserstoriesComponent } from './userstories/userstories.component';
 
 const routes: Routes = [
   {
@@ -33,6 +36,14 @@ const routes: Routes = [
         children: [
           { path: 'create', component: CreatetaskComponent },
           { path: 'edit/:taskId', component: EdittaskComponent },
+        ],
+      },
+      {
+        path: 'userstory',
+        component: UserstoriesComponent,
+        children: [
+          { path: 'create', component: CreateuserstoryComponent },
+          { path: 'edit/:userstoryid', component: EdituserstoryComponent },
         ],
       },
     ],

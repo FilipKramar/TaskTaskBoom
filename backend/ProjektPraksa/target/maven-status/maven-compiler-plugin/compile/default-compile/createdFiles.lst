@@ -37,6 +37,7 @@ com\atos\projektpraksa\project\repository\ProjectRepository.class
 com\atos\projektpraksa\task\controller\TaskController.class
 com\atos\projektpraksa\useruserstory\model\UserUserstory.class
 com\atos\projektpraksa\usertask\controller\UserTaskController.class
+com\atos\projektpraksa\userstory\dto\UserstoryGetDTO.class
 com\atos\projektpraksa\task\model\Task.class
 com\atos\projektpraksa\task\dto\TaskEditDTO.class
 com\atos\projektpraksa\userstory\model\Userstory.class

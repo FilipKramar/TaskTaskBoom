@@ -67,20 +67,51 @@ export class ApirequestService {
       }
     );
   }
+
+  createAUserstory(data: any) {
+    const url = `${apiUrl.key}userstories`;
+    this.http.post<void>(url, data).subscribe(
+      () => {
+        alert('Userstory created sucessfuly');
+        this.router.navigate(['/home/dashboard']);
+      },
+      (error) => {
+        alert('Error creating userstory');
+      }
+    );
+  }
   getTaskData(taskId: number): Observable<any> {
-    const url = `http://localhost:8080/api/v1/tasks/${taskId}`;
+    const url = `${apiUrl.key}tasks/${taskId}`;
     return this.http.get<any>(url);
   }
 
+  getUserstoryData(usestoryId: number): Observable<any> {
+    const url = `${apiUrl.key}userstories/${usestoryId}`;
+    return this.http.get<any>(url);
+  }
   editATask(data: any) {
     const url = `${apiUrl.key}tasks`;
     this.http.put(url, data).subscribe(
-      ()=> {
+      () => {
         alert('Task edited sucessfuly');
         this.router.navigate(['/home/dashboard']);
       },
       (error) => {
         alert('Error editing task');
+      }
+    );
+  }
+
+  editAnUserstory(data: any) {
+    const url = `${apiUrl.key}userstories`;
+
+    this.http.put(url, data).subscribe(
+      () => {
+        alert('Userstory edited sucessfuly');
+        this.router.navigate(['/home/dashboard']);
+      },
+      (error) => {
+        alert('Error editing userstory');
       }
     );
   }

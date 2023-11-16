@@ -1,12 +1,11 @@
 package com.atos.projektpraksa.userstory.controller;
 
 import com.atos.projektpraksa.user.model.User;
-import com.atos.projektpraksa.userstory.dto.UserstoryCreationDTO;
-import com.atos.projektpraksa.userstory.dto.UserstoryEditAssigneeDTO;
-import com.atos.projektpraksa.userstory.dto.UserstoryEditDTO;
-import com.atos.projektpraksa.userstory.dto.UserstoryListingDTO;
+import com.atos.projektpraksa.user.repository.UserRepository;
+import com.atos.projektpraksa.userstory.dto.*;
 import com.atos.projektpraksa.userstory.model.Userstory;
 import com.atos.projektpraksa.userstory.service.UserstoryService;
+import com.atos.projektpraksa.useruserstory.model.UserUserstory;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -36,7 +35,7 @@ public class UserstoryController {
     }
 
     @PatchMapping
-    public ResponseEntity<Userstory> editUserstoryAssignee (@RequestBody UserstoryEditAssigneeDTO request)
+    public ResponseEntity<UserUserstory> editUserstoryAssignee (@RequestBody UserstoryEditAssigneeDTO request)
     {
         return ResponseEntity.ok(userstoryService.editUserstoryAssignee(request));
     }
@@ -44,4 +43,9 @@ public class UserstoryController {
     public ResponseEntity<Userstory> editUserstory(@RequestBody UserstoryEditDTO request){
         return ResponseEntity.ok(userstoryService.editUserstory(request));
     }
+    @GetMapping("/{id}")
+    public ResponseEntity<UserstoryGetDTO> getAnUserstory(@PathVariable Long id){
+        return ResponseEntity.ok(userstoryService.getAnUserstory(id));
+    }
+
 }

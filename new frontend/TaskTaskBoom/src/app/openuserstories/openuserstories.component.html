@@ -1,9 +1,11 @@
 <div class="grid-item item">
-  <p>USERSTORY</p>
+  <div class="task" fxLayout="row" fxLayoutAlign="space-between center">
+    <p>OPEN USERSTORIES</p>
+     <u routerLink="/home/userstory/create"> Create an new userstory</u></div>
   <table mat-table  [dataSource]="userstories" class="mat-elevation-z8" >
     <ng-container matColumnDef="id">
       <th mat-header-cell *matHeaderCellDef>ID</th>
-      <td mat-cell *matCellDef="let userstory">{{ userstory.id }}</td>
+      <td mat-cell *matCellDef="let userstory" [routerLink]="['/home/userstory/edit', userstory.id]"><u>{{ userstory.id }}</u></td>
     </ng-container>
 
     <ng-container matColumnDef="name">
