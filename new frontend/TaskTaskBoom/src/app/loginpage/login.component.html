@@ -1,10 +1,24 @@
-<div class="content">
-  <div class="background-text">
-    <h1>TaskTaskBoom <img src="../../assets/logo.png" class="logo" /></h1>
+<div class="content" fxLayout="row" fxLayoutAlign="space-around center">
+  <div
+    class="background-text"
+    fxLayout="column"
+    fxLayoutAlign="space-around center"
+  >
+    <div fxLayout="column" fxLayoutAlign="none center">
+      <h1 fxLayout="column" fxLayoutAlign="none center">
+        TaskTaskBoom
+        <img
+          src="../../assets/logo.png"
+          class="logo"
+          fxLayout="column"
+          fxLayoutAlign="space-around center"
+        />
+      </h1>
+    </div>
   </div>
   <div class="session">
     <form>
-      <router-outlet (activate)="onLogin($event)"></router-outlet>
+      <router-outlet></router-outlet>
     </form>
   </div>
 </div>

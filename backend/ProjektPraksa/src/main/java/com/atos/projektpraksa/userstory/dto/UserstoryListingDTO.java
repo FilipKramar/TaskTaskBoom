@@ -1,10 +1,13 @@
 package com.atos.projektpraksa.userstory.dto;
 
 import com.atos.projektpraksa.enums.CurrentStage;
+import com.atos.projektpraksa.task.model.Task;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -19,4 +22,6 @@ public class UserstoryListingDTO {
     String username;
 
     CurrentStage currentStage;
+
+    List<Task> tasks;
 }

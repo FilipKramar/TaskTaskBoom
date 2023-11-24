@@ -19,15 +19,16 @@
 
 .mat-drawer{
   background-color:map-get($my-primary,default);
+  color:white;
   
 }
 
-:host ::ng-deep .mdc-list-item__primary-text {
-  color: #ffff;
+:host ::ng-deep .mdc-list-item__primary-text, .mdc-list-item:hover {
+  color: #ffff !important;
   font-size: larger;
 }
-:host ::ng-deep .mat-list-item-active .mdc-list-item__primary-text {
- 
-  color: #ffcc00 !important; 
-  font-weight: bold; 
+
+.mdc-list-item:focus{
+
+  background-color: map-get($lighter-primary,default );
 }

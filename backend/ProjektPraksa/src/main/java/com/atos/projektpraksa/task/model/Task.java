@@ -2,19 +2,19 @@ package com.atos.projektpraksa.task.model;
 
 import com.atos.projektpraksa.enums.Priority;
 import com.atos.projektpraksa.enums.Status;
+import com.atos.projektpraksa.userstory.model.Userstory;
 import com.atos.projektpraksa.usertask.model.UserTask;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
+import lombok.*;
 
 
 @Entity
 @Table(name = "tasks")
-@Data
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
@@ -34,12 +34,15 @@ public class Task {
 
     Long complexity;
 
-//    @ManyToOne
-//    @JoinColumn(name = "project_id")
-//    Project project;
+    @ManyToOne
+    @JoinColumn(name = "userstory")
+
+    @JsonBackReference
+    Userstory userstory;
 
 
     @OneToOne(mappedBy = "task",cascade = CascadeType.ALL,orphanRemoval = true)
+  
     @JsonManagedReference
     UserTask assignee;
 
