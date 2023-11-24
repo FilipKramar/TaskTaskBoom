@@ -5,7 +5,7 @@
       </mat-card-title>
       <mat-card-content fxLayout="column" fxLayoutAlign="space-around center">
         <form
-          [formGroup]="createUserstoryFormGroup"
+          [formGroup]="editUserstoryFormGroup"
           fxLayout="column"
           fxLayoutAlign="space-between stretch"
         >
@@ -69,7 +69,7 @@
               fxLayoutAlign="start stretch"
             >
               <div>User:</div>
-              <select formControlName="userId">
+              <select formControlName="user_id">
                 <option value="" disabled selected>Select a user</option>
                 <option value=1>John D.</option>
                 <option value=2>Jane S.</option>
@@ -90,7 +90,7 @@
               <div>Userstory Id:</div>
               <input
                 type="number"
-                formControlName="userstoryId"
+                formControlName="userstory_id"
                 fxLayout="column"
                 fxLayoutAlign="start stretch"
               />

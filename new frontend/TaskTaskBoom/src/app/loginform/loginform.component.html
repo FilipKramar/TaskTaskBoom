@@ -1,24 +1,49 @@
+<div class="content" fxLayout="column" fxLayoutAlign="space-around center">
+  <h4>We are <span>TaskTaskBoom</span></h4>
+  <p>Welcome back!</p>
+  <form
+    [formGroup]="loginFormGroup"
+    fxLayout="column"
+    fxLayoutAlign="space-around center"
+  >
+    <div
+      class="floating-label"
+      fxLayoutAlign="space-between start"
+      fxLayout="column"
+    >
+      <div fxLayoutAlign="space-around start">
+        <div fxLayoutAlign="center center">Username:</div>
+      </div>
+      <input
+        placeholder="Username"
+        type="text"
+        [formControlName]="'username'"
+      />
+    </div>
+    <div
+      class="floating-label"
+      fxLayoutAlign="space-between start"
+      fxLayout="column"
+    >
+      <div fxLayoutAlign="space-around start">
+        <div fxLayoutAlign="center center">Password:</div>
+      </div>
+      <input
+        placeholder="Password"
+        type="password"
+        [formControlName]="'password'"
+      />
+    </div>
+    <button
+      fxLayout="column"
+      fxLayoutAlign="center center"
+      (click)="collectFormData()"
+    >
+      Log in
+    </button>
 
-<div class="content">
-
-<h4>We are <span>TaskTaskBoom</span></h4>
-<p>Welcome back!</p>
-<form [formGroup]="loginFormGroup">
-  <div class="loginform">
-    <input placeholder="Username" type="text" [formControlName]="'username'" />
-  </div>
-  <div class="floating-label">
-    <input
-      placeholder="Password"
-      type="password"
-      [formControlName]="'password'"
-    />
-  </div>
-  <button (click)="collectFormData()">Log in</button>
-  <button routerLink="/home">Skip no database</button>
-  
-  <div class="register">
-  <a mat-button routerLink="/register" >Dont have an account?</a>
-</div>
-</form>
+    <div class="register">
+      <a mat-button routerLink="/register"> <u>Dont have an account? </u></a>
+    </div>
+  </form>
 </div>

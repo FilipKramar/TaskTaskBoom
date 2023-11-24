@@ -1,5 +1,6 @@
-import { Component, Output,EventEmitter } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ApirequestService } from '../services/apirequestservice.service';
 
 @Component({
   selector: 'app-createuserstory',
@@ -7,22 +8,16 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./createuserstory.component.scss']
 })
 export class CreateuserstoryComponent {
+  constructor(private apiRequestService:ApirequestService){}
   createUserstoryFormGroup: FormGroup = new FormGroup({
     description: new FormControl('', Validators.required),
     name: new FormControl('', Validators.required),
     currentStage: new FormControl('', Validators.required),
   });
-  @Output() dataSubmitted = new EventEmitter<{
-    description: string;
-    name: string;
-    currentStage: string;
-  }>();
+  
 
   collectFormData() {
-    const description = this.createUserstoryFormGroup.get('description')?.value;
-    const currentStage = this.createUserstoryFormGroup.get('currentStage')?.value;
-    const name = this.createUserstoryFormGroup.get('name')?.value;
-    this.dataSubmitted.emit({ description, name, currentStage });
+    this.apiRequestService.createAUserstory(this.createUserstoryFormGroup.value);
   }
 
 }

@@ -25,39 +25,8 @@ export class EdittaskComponent implements OnInit {
     }),
   });
 
-  @Output() dataSubmitted = new EventEmitter<{
-    description: string;
-    priority: string;
-    status: string;
-    complexity: number;
-    taskEditAssigneeDTO: {
-      userid: number;
-      taskid: number;
-    };
-  }>();
-
   collectFormData() {
-    const {
-      description,
-      priority,
-      status,
-      complexity,
-      taskEditAssigneeDTO: { userid, taskid },
-    } = this.createTaskFormGroup.value;
-
-    const userIdAsNumber = Number(userid);
-    const taskIdAsNumber = Number(taskid);
-
-    this.dataSubmitted.emit({
-      description,
-      priority,
-      status,
-      complexity,
-      taskEditAssigneeDTO: {
-        userid: userIdAsNumber,
-        taskid: taskIdAsNumber,
-      },
-    });
+    this.apiRequestService.editATask(this.createTaskFormGroup.value);
   }
 
   ngOnInit(): void {

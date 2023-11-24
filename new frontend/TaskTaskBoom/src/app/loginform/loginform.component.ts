@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ApirequestService } from '../services/apirequestservice.service';
 
 @Component({
   selector: 'app-loginform',
@@ -7,19 +8,13 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./loginform.component.scss'],
 })
 export class LoginformComponent {
+  constructor(private apiRequestService:ApirequestService){}
   loginFormGroup: FormGroup = new FormGroup({
     username: new FormControl('', Validators.required),
     password: new FormControl('', Validators.required),
   });
-  @Output() dataSubmitted = new EventEmitter<{
-    username: string;
-    password: string;
-  }>();
-
   collectFormData() {
-    const username = this.loginFormGroup.get('username')?.value;
-    const password = this.loginFormGroup.get('password')?.value;
-    this.dataSubmitted.emit({ username, password });
+    this.apiRequestService.loginUser(this.loginFormGroup.value);
   }
 
 }

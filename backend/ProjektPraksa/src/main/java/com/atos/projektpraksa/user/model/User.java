@@ -3,18 +3,17 @@ package com.atos.projektpraksa.user.model;
 
 import com.atos.projektpraksa.usertask.model.UserTask;
 import com.atos.projektpraksa.useruserstory.model.UserUserstory;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.util.List;
 
 @Entity
 @Table(name = "users")
-@Data
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
@@ -38,7 +37,7 @@ public class User {
 //    private List<UserProject> userProjects;
 
 
-    @OneToMany(mappedBy = "assignee")
+    @OneToMany(mappedBy = "assignee",fetch = FetchType.LAZY)
     @JsonManagedReference
     List<UserTask> tasks;
 

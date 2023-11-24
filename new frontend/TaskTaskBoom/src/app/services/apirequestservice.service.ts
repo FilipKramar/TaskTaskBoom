@@ -46,7 +46,7 @@ export class ApirequestService {
   }
 
   getAllTasks(): Observable<any> {
-    const url = `${apiUrl.key}usertasks`;
+    const url = `${apiUrl.key}tasks`;
     return this.http.get<any>(url);
   }
 

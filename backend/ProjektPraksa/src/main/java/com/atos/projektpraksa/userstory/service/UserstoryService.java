@@ -2,6 +2,7 @@ package com.atos.projektpraksa.userstory.service;
 
 import com.atos.projektpraksa.task.dto.TaskGetDTO;
 import com.atos.projektpraksa.task.model.Task;
+import com.atos.projektpraksa.task.service.TaskService;
 import com.atos.projektpraksa.user.model.User;
 import com.atos.projektpraksa.user.repository.UserRepository;
 import com.atos.projektpraksa.userstory.dto.*;
@@ -13,6 +14,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.io.Serial;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
@@ -25,6 +27,7 @@ public class UserstoryService {
     private final UserStoryRepository userStoryRepository;
     private final UserUserstoryRepository userUserstoryRepository;
     private final UserRepository userRepository;
+    private final TaskService taskService;
     public List<UserstoryListingDTO> getAllUserstories() {
 
         List<Userstory> userstories=userStoryRepository.findAll();
@@ -39,6 +42,7 @@ public class UserstoryService {
                         .name(userstory.getName())
                         .currentStage(userstory.getCurrentStage())
                         .username(userstory.getAssignee().getAssignee().getUsername())
+                        .tasks(userstory.getTasks())
                         .build();
                 listedUserstories.add(userstoryListingDTO);
             }else{
@@ -47,6 +51,7 @@ public class UserstoryService {
                         .name(userstory.getName())
                         .currentStage(userstory.getCurrentStage())
                         .username(null)
+                        .tasks(userstory.getTasks())
                         .build();
                 listedUserstories.add(userstoryListingDTO);
             }
@@ -62,15 +67,17 @@ public class UserstoryService {
     }
     @Transactional
     public Userstory createAnUserstory(UserstoryCreationDTO request) {
-
         Userstory userstory= Userstory.builder()
                 .name(request.getName())
                 .currentStage(request.getCurrentStage())
                 .description(request.getDescription())
                 .complexity(0L)
+                .tasks(taskService.getTasks(request.getTasks()))
                 .build();
 
         userStoryRepository.save(userstory);
+
+        taskService.bindTaskToUserstory(userstory,request.getTasks());
 
 
         return userstory;
@@ -120,6 +127,8 @@ public class UserstoryService {
         userstory.setName(request.getName());
         userstory.setComplexity(request.getComplexity());
         userstory.setCurrentStage(request.getCurrentStage());
+        userstory.setTasks(taskService.getTasks(request.getTasks()));
+        taskService.bindTaskToUserstory(userstory,request.getTasks());
         editUserstoryAssignee(request.getUserstoryEditAssigneeDTO());
         return userstory;
     }
@@ -138,6 +147,7 @@ public class UserstoryService {
             userstoryGetDTO.setDescription(userstory.getDescription());
             userstoryGetDTO.setName(userstory.getName());
             userstoryGetDTO.setCurrentStage(userstory.getCurrentStage());
+            userstoryGetDTO.setTasks(userstory.getTasks());
             userstoryGetDTO.setComplexity(userstory.getComplexity());
             userstoryGetDTO.setUserId(user.getId());
             userstoryGetDTO.setUsername(user.getUsername());
@@ -149,6 +159,7 @@ public class UserstoryService {
             userstoryGetDTO.setName(userstory.getName());
             userstoryGetDTO.setCurrentStage(userstory.getCurrentStage());
             userstoryGetDTO.setComplexity(userstory.getComplexity());
+            userstoryGetDTO.setTasks(userstory.getTasks());
             userstoryGetDTO.setUserId(null);
             userstoryGetDTO.setUsername(null);
 
