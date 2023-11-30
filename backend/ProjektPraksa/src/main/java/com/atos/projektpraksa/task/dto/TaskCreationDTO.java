@@ -5,11 +5,10 @@ import com.atos.projektpraksa.enums.Priority;
 import com.atos.projektpraksa.usertask.model.UserTask;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
-@Data
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 public class TaskCreationDTO {

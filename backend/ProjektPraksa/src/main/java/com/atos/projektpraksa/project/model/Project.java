@@ -1,17 +1,25 @@
 package com.atos.projektpraksa.project.model;
 
+import com.atos.projektpraksa.task.model.Task;
+import com.atos.projektpraksa.userproject.model.UserProject;
+import com.atos.projektpraksa.userstory.model.Userstory;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
+import java.sql.Timestamp;
+import java.time.LocalDate;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "Projects")
-@Data
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
+@ToString
 public class Project {
 
     @Id
@@ -22,17 +30,16 @@ public class Project {
 
     String description;
 
-    Date start_date;
+    Timestamp startDate;
 
-    Date end_date;
+    Timestamp endDate;
 
-//    @OneToMany(mappedBy = "project")
-//    private List<UserProject> userProjects;
+    @OneToMany(mappedBy = "project", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JsonManagedReference
+    List<UserProject> user;
 
-//    @OneToMany(mappedBy = "project")
-//    List<Task> tasks;
-
-//    @OneToMany(mappedBy = "project")
-//    List<Userstory> userstories;
+    @OneToMany(mappedBy = "project", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JsonManagedReference
+    List<Userstory> userstories;
 
 }

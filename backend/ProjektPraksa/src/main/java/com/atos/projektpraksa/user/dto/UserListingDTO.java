@@ -1,12 +1,9 @@
 package com.atos.projektpraksa.user.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
-@Data
-@AllArgsConstructor
+@Data@Getter
+@Setter@AllArgsConstructor
 @NoArgsConstructor
 @Builder
 public class UserListingDTO {

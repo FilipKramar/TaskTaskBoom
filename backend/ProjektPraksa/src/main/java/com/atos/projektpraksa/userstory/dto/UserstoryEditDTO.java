@@ -3,13 +3,12 @@ package com.atos.projektpraksa.userstory.dto;
 import com.atos.projektpraksa.enums.CurrentStage;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.util.List;
 
-@Data
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 public class UserstoryEditDTO {

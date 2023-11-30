@@ -2,13 +2,12 @@ package com.atos.projektpraksa.userstory.dto;
 
 import com.atos.projektpraksa.enums.CurrentStage;
 import com.atos.projektpraksa.task.model.Task;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.util.List;
 
-@Data
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 public class UserstoryCreationDTO {

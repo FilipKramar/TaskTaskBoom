@@ -1,6 +1,7 @@
 package com.atos.projektpraksa.user.model;
 
 
+import com.atos.projektpraksa.userproject.model.UserProject;
 import com.atos.projektpraksa.usertask.model.UserTask;
 import com.atos.projektpraksa.useruserstory.model.UserUserstory;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -33,8 +34,8 @@ public class User {
     String lastName;
 
 
-//    @OneToMany(mappedBy = "user")
-//    private List<UserProject> userProjects;
+    @OneToMany(mappedBy = "user")
+    private List<UserProject> userProjects;
 
 
     @OneToMany(mappedBy = "assignee",fetch = FetchType.LAZY)

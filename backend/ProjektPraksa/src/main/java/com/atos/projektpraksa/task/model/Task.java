@@ -2,6 +2,7 @@ package com.atos.projektpraksa.task.model;
 
 import com.atos.projektpraksa.enums.Priority;
 import com.atos.projektpraksa.enums.Status;
+import com.atos.projektpraksa.project.model.Project;
 import com.atos.projektpraksa.userstory.model.Userstory;
 import com.atos.projektpraksa.usertask.model.UserTask;
 import com.fasterxml.jackson.annotation.JsonBackReference;
@@ -36,13 +37,11 @@ public class Task {
 
     @ManyToOne
     @JoinColumn(name = "userstory")
-
     @JsonBackReference
     Userstory userstory;
 
 
     @OneToOne(mappedBy = "task",cascade = CascadeType.ALL,orphanRemoval = true)
-  
     @JsonManagedReference
     UserTask assignee;
 

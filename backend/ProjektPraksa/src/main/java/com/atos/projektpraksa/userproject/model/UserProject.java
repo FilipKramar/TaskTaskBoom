@@ -18,11 +18,11 @@ public class UserProject {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "userid")
     private User user;
 
     @ManyToOne
-    @JoinColumn(name = "project_id")
+    @JoinColumn(name = "projectid")
     private Project project;
 
     private String role;

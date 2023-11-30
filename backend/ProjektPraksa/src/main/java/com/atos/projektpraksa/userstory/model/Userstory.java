@@ -35,11 +35,15 @@ public class Userstory {
 
     @OneToMany(mappedBy = "userstory", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JsonManagedReference
-
     List<Task> tasks;
 
 
     @OneToOne(mappedBy = "userstory",fetch = FetchType.LAZY)
     @JsonManagedReference
     UserUserstory assignee;
+
+    @ManyToOne
+    @JoinColumn(name = "project")
+    @JsonManagedReference
+    Project project;
 }
