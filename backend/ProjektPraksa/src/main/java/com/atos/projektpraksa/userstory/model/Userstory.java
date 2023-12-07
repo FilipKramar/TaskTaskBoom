@@ -4,6 +4,7 @@ import com.atos.projektpraksa.enums.CurrentStage;
 import com.atos.projektpraksa.project.model.Project;
 import com.atos.projektpraksa.task.model.Task;
 import com.atos.projektpraksa.useruserstory.model.UserUserstory;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
@@ -43,7 +44,7 @@ public class Userstory {
     UserUserstory assignee;
 
     @ManyToOne
-    @JoinColumn(name = "project")
-    @JsonManagedReference
+    @JoinColumn(name = "project_id")
+    @JsonBackReference
     Project project;
 }

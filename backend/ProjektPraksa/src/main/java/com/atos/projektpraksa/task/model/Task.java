@@ -36,7 +36,7 @@ public class Task {
     Long complexity;
 
     @ManyToOne
-    @JoinColumn(name = "userstory")
+    @JoinColumn(name = "userstory_id")
     @JsonBackReference
     Userstory userstory;
 

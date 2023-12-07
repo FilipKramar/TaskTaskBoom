@@ -1,31 +1,36 @@
 package com.atos.projektpraksa.userproject.model;
 
+import com.atos.projektpraksa.enums.Role;
 import com.atos.projektpraksa.project.model.Project;
 import com.atos.projektpraksa.user.model.User;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @Entity
 @Table(name = "User_Project")
-@Data
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 public class UserProject {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "userid")
+    @JoinColumn(name = "user_id")
+    @JsonBackReference
     private User user;
 
     @ManyToOne
-    @JoinColumn(name = "projectid")
+    @JoinColumn(name = "project_id")
+    @JsonBackReference
     private Project project;
 
-    private String role;
+    @Enumerated(EnumType.STRING)
+    private Role role;
 
 
 }

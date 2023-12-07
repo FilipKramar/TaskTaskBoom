@@ -1,6 +1,7 @@
 package com.atos.projektpraksa.project.controller;
 
 import com.atos.projektpraksa.project.dto.ProjectCreationDTO;
+import com.atos.projektpraksa.project.dto.ProjectEditDTO;
 import com.atos.projektpraksa.project.model.Project;
 import com.atos.projektpraksa.project.service.ProjectService;
 import com.atos.projektpraksa.task.dto.TaskListingDTO;
@@ -27,5 +28,10 @@ public class ProjectController {
     public ResponseEntity<Project> createAProject( @RequestBody ProjectCreationDTO request) {
 
         return ResponseEntity.ok(projectService.createAProject(request));
+    }
+    @PatchMapping
+    public ResponseEntity<Project> editAProject( @RequestBody ProjectEditDTO request) {
+
+        return ResponseEntity.ok(projectService.editAProject(request));
     }
 }
