@@ -1,0 +1,58 @@
+
+
+@import '../../my-theme.scss';
+.task
+{
+  background-color: map-get($my-primary,default);
+  color: white;
+}
+
+.item {
+  
+  height: fit-content;
+  width: auto;
+  overflow: auto;
+  top: 0px;
+  background-color: #f2f2f2;
+  bottom: 1px solid #f2f2f2;
+  text-align: center;
+
+  p,u {
+    background-color: map-get($my-primary,default);
+    color: white;
+   
+    
+    margin: 0% 3% 0% 3%;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: left;
+  }
+
+  table {
+    height: auto;
+    width: 100%;
+    background-color: map-get($lighter-primary,default);
+    
+    
+    th {
+      font-size: large;
+      color: white;
+      background-color: map-get($my-primary,default);
+      text-align: center !important;
+    }
+    tr{
+      color:white;
+    }
+    
+    td {
+      font-size: 17px;
+      border-bottom: 1px solid white;
+      text-align: center;}
+    
+    tr:hover {
+      background-color: map-get($lighter-primary, 300);
+      color: black;
+    }
+  }
+  
+}

@@ -1,0 +1,28 @@
+<mat-toolbar
+  fxLayout="row"
+  fxLayout.xs="row"
+  fxLayoutAlign="space-between center"
+  class="fixed-toolbar"
+  color="primary"
+>
+  <div fxLayout="row">
+    <div class="menu">
+    <button
+      *ngIf="isHandset$ | async"
+      type="button"
+      aria-label="Toggle sidenav"
+      mat-icon-button
+      (click)="toggleNav()"
+    >
+    <mat-icon>menu</mat-icon>
+    </button>
+  </div>
+    <div routerLink="/home/dashboard">
+      <img src="../../assets/logo.png"  class="logo" />
+    </div>
+  </div>
+
+  <div class="name">TaskTaskBoom</div>
+  <div (click)="logout()" >User: {{username}}</div>
+</mat-toolbar>
+
