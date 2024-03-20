@@ -1,0 +1,57 @@
+
+
+
+
+
+SELECT * FROM USER_TASK
+
+
+INSERT INTO users (id,username, password, first_name, last_name)
+VALUES (1,'jane_doe', 'password123', 'Jane', 'Doe');
+
+INSERT INTO users (id,username, password, first_name, last_name)
+VALUES (2,'john', 'password', 'John', 'Doe');
+INSERT INTO Tasks(id,description)
+VALUES
+    (1,'Task goes brrrr'),
+        (2,'Description of a task'),
+    (3,'Ovo se moze dodati putem postmana'),
+    (4,'Taskie');
+
+
+
+
+INSERT INTO User_task(user_id, task_id)
+VALUES
+    (1, 2), -- Book 1 is in Library A
+
+    (2, 1), -- Book 2 is also in Library B
+    (1,4),
+    (3, 3); -- Book 3 is also in Library C
+
+
+
+
+
+SELECT * FROM USER_TASK
+
+SELECT * FROM USERS
+
+SELECT * FROM TASKS
+
+
+
+DELETE FROM user_task WHERE user_id = 1;
+
+
+DELETE FROM users WHERE id = 1;
+
+
+DELETE FROM tasks WHERE id IN (SELECT task_id FROM user_task WHERE user_id = 1);
+DELETE FROM user_task WHERE user_id = 1;
+DELETE FROM users WHERE id = 1;
+
+
+
+
+
