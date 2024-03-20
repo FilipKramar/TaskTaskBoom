@@ -1,0 +1,109 @@
+<div fxLayout="row" fxLayoutAlign="center">
+    <mat-card>
+      <mat-card-title fxLayoutAlign="center center">
+        <h4><span>Edit a Task</span></h4>
+      </mat-card-title>
+      <mat-card-content fxLayout="column" fxLayoutAlign="space-around center">
+        <form
+          [formGroup]="editUserstoryFormGroup"
+          fxLayout="column"
+          fxLayoutAlign="space-between stretch"
+        >
+          <div
+            class="floating-label"
+            fxLayout="column"
+            fxLayoutAlign="start stretch"
+          >
+            <div>Description:</div>
+            <input
+              placeholder="Description"
+              type="text"
+              [formControlName]="'description'"
+              fxLayout="column"
+              fxLayoutAlign="start stretch"
+            />
+          </div>
+  
+          <div>Name:</div>
+        <div
+          class="floating-label"
+          fxLayout="column"
+          fxLayoutAlign="start stretch"
+        >
+          <input
+            placeholder="Name"
+            type="text"
+            formControlName="name"
+            fxLayout="column"
+            fxLayoutAlign="start stretch"
+          />
+        </div>
+        <div
+          class="floating-label"
+          fxLayout="column"
+          fxLayoutAlign="start stretch"
+        >
+          <div>Current Stage</div>
+          <select formControlName="currentStage">
+            <option value="" disabled selected>Select a priority</option>
+            <option value="NEW">New</option>
+            <option value="IN_DEVELOPMENT">In development</option>
+            <option value="TESTED">Tested</option>
+            <option value="CLOSED">Closed</option>
+          </select>
+        </div>
+        <div>Complexity:</div>
+          <input
+            placeholder="Complexity"
+            type="number"
+            [formControlName]="'complexity'"
+            fxLayout="column"
+            fxLayoutAlign="start stretch"
+          />
+       
+
+          <div formGroupName="userstoryEditAssigneeDTO">
+            <div
+              class="floating-label"
+              fxLayout="column"
+              fxLayoutAlign="start stretch"
+            >
+              <div>User:</div>
+              <select formControlName="user_id">
+                <option value="" disabled selected>Select a user</option>
+                <option value=1>John D.</option>
+                <option value=2>Jane S.</option>
+                <option value=3>Bob J.</option>
+                <option value=4>Veronika P.</option>
+                <option value=5>Filip K.</option>
+                <option value=6>Ivan S.</option>
+                <option value=7>Jurica J.</option>
+                <option value=8>Filip L.</option>
+                <option value=9>Renato D.</option>
+              </select>
+            </div>
+            <div
+              class="floating-label"
+              fxLayout="column"
+              fxLayoutAlign="start stretch"
+            >
+              <div>Userstory Id:</div>
+              <input
+                type="number"
+                formControlName="userstory_id"
+                fxLayout="column"
+                fxLayoutAlign="start stretch"
+              />
+            </div>
+            
+          </div>
+          <div fxLayout="row" fxLayoutAlign="center center">
+            <mat-card-actions>
+              <button (click)="collectFormData()">Edit task</button>
+            </mat-card-actions>
+          </div>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  

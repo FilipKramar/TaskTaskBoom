@@ -1,0 +1,63 @@
+<div fxLayout="row" fxLayoutAlign="center">
+  <mat-card>
+    <mat-card-title fxLayoutAlign="center center">
+      <h4><span>Create an Userstory</span></h4>
+    </mat-card-title>
+    <mat-card-content fxLayout="column" fxLayoutAlign="space-around center">
+      <form
+        [formGroup]="createUserstoryFormGroup"
+        fxLayout="column"
+        fxLayoutAlign="space-between stretch"
+      >
+        <div>Description:</div>
+        <div
+          class="floating-label"
+          fxLayout="column"
+          fxLayoutAlign="start stretch"
+        >
+          <input
+            placeholder="Description"
+            type="text"
+            formControlName="description"
+            fxLayout="column"
+            fxLayoutAlign="start stretch"
+          />
+        </div>
+        <div>Name:</div>
+        <div
+          class="floating-label"
+          fxLayout="column"
+          fxLayoutAlign="start stretch"
+        >
+          <input
+            placeholder="Name"
+            type="text"
+            formControlName="name"
+            fxLayout="column"
+            fxLayoutAlign="start stretch"
+          />
+        </div>
+        <div
+          class="floating-label"
+          fxLayout="column"
+          fxLayoutAlign="start stretch"
+        >
+          <div>Current Stage</div>
+          <select formControlName="currentStage">
+            <option value="" disabled selected>Select a priority</option>
+            <option value="NEW">New</option>
+            <option value="IN_DEVELOPMENT">In development</option>
+            <option value="TESTED">Tested</option>
+            <option value="CLOSED">Closed</option>
+          </select>
+        </div>
+
+        <div fxLayout="row" fxLayoutAlign="center center">
+          <mat-card-actions>
+            <button (click)="collectFormData()">Create</button>
+          </mat-card-actions>
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>
