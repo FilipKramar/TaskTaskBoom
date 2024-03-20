@@ -41,7 +41,7 @@ export class LoginFormComponent {
   
 
     console.log(loginData);
-    this.http.post<number>('{', loginData).subscribe(
+    this.http.post<number>('http://localhost:8080/api/v1/users', loginData).subscribe(
       (userId: number) => {
         console.log('Logged in');
         this.router.navigate(['/home'], { queryParams: { id: userId } });

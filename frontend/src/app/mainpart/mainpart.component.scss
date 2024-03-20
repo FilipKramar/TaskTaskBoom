@@ -22,7 +22,7 @@ $secondary-color: rgb(195, 195, 195) /*#2C0954*/;
   width: auto;
   overflow: auto;
 
-  z-index: 0;
+  z-index: -1;
   display: grid;
   grid-template-columns: auto auto;
   gap: 15px;
