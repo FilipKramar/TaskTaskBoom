@@ -7,6 +7,7 @@ import com.atos.projektpraksa.task.model.Task;
 import com.atos.projektpraksa.task.repository.TaskRepository;
 import com.atos.projektpraksa.user.model.User;
 import com.atos.projektpraksa.user.repository.UserRepository;
+import com.atos.projektpraksa.userstory.model.Userstory;
 import com.atos.projektpraksa.usertask.model.UserTask;
 import com.atos.projektpraksa.usertask.repository.UserTaskRepository;
 import lombok.AllArgsConstructor;
@@ -114,7 +115,6 @@ public class TaskService {
 
     @Transactional
     public UserTask editTaskAssignee(TaskEditAssigneeDTO request) {
-
         Timestamp timestamp = new Timestamp(System.currentTimeMillis());
         User user = userRepository.findById(request.getUserid())
                 .orElseThrow(() -> new RuntimeException("User not found with ID: " + request.getUserid()));
@@ -124,7 +124,13 @@ public class TaskService {
 
         Optional<UserTask> userTaskOptional = userTaskRepository.findByTaskId(request.getTaskid());
         if (userTaskOptional.isPresent()) {
-            return userTaskOptional.get();
+            UserTask existingUserTask = userTaskOptional.get();
+            existingUserTask.setAssignee(user);
+            existingUserTask.setLast_edit(timestamp);
+            userTaskRepository.save(existingUserTask);
+            user.getTasks().add(existingUserTask);
+            userRepository.save(user);
+            return existingUserTask;
         } else {
             UserTask userTask = UserTask.builder()
                     .task(task)
@@ -137,9 +143,8 @@ public class TaskService {
             userRepository.save(user);
             return userTask;
         }
-
-
     }
+
 
     @Transactional
     public Task editTask(TaskEditDTO request) {
@@ -198,5 +203,30 @@ public class TaskService {
                 .build();
 
         return task;
+    }
+
+    public List<Task> getTasks(List<Long> taskids) {
+
+        List<Task> tasks=new ArrayList<>();
+
+        for(Long taskid:taskids){
+            Optional<Task> optionalTask=taskRepository.findById(taskid);
+            if(optionalTask.isPresent()){
+
+                tasks.add(optionalTask.get());
+            }
+
+        }
+        return tasks;
+    }
+
+    public void bindTaskToUserstory(Userstory userstory,List<Long>taskids) {
+        for(Long taskId:taskids){
+            Optional<Task> optionalTask=taskRepository.findById(taskId);
+            if(optionalTask.isPresent()){
+                optionalTask.get().setUserstory(userstory);
+                taskRepository.save(optionalTask.get());
+            }
+        }
     }
 }
