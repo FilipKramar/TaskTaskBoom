@@ -17,6 +17,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.io.Serial;
 import java.sql.Timestamp;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -72,8 +73,15 @@ public class UserstoryService {
                 .currentStage(request.getCurrentStage())
                 .description(request.getDescription())
                 .complexity(0L)
-                .tasks(taskService.getTasks(request.getTasks()))
                 .build();
+
+        List<Task> tasks = taskService.getTasks(request.getTasks());
+        if (tasks != null && !tasks.isEmpty()) {
+            userstory.setTasks(tasks);
+
+        } else {
+            userstory.setTasks(Collections.emptyList());
+        }
 
         userStoryRepository.save(userstory);
 
@@ -118,20 +126,28 @@ public class UserstoryService {
         }
     }
 
-        public Userstory editUserstory(UserstoryEditDTO request) {
+    public Userstory editUserstory(UserstoryEditDTO request) {
         Userstory userstory = userStoryRepository.findById(request.getUserstoryEditAssigneeDTO().getUserstory_id())
-                .orElseThrow(() -> new RuntimeException("Task not found with ID: " + request.getUserstoryEditAssigneeDTO().getUserstory_id()));
-
+                .orElseThrow(() -> new RuntimeException("Userstory not found with ID: " + request.getUserstoryEditAssigneeDTO().getUserstory_id()));
 
         userstory.setDescription(request.getDescription());
         userstory.setName(request.getName());
         userstory.setComplexity(request.getComplexity());
         userstory.setCurrentStage(request.getCurrentStage());
-        userstory.setTasks(taskService.getTasks(request.getTasks()));
-        taskService.bindTaskToUserstory(userstory,request.getTasks());
+
+        List<Task> tasks = taskService.getTasks(request.getTasks());
+        if (tasks != null && !tasks.isEmpty()) {
+            userstory.setTasks(tasks);
+            taskService.bindTaskToUserstory(userstory, request.getTasks());
+        } else {
+            userstory.setTasks(null);
+        }
+
         editUserstoryAssignee(request.getUserstoryEditAssigneeDTO());
+
         return userstory;
     }
+
 
     public UserstoryGetDTO getAnUserstory(Long id) {
         Userstory userstory = userStoryRepository.findById(id)

@@ -20,25 +20,29 @@ export class EdituserstoryComponent implements OnInit {
     name: new FormControl('', Validators.required),
     complexity: new FormControl('', Validators.required),
     currentStage: new FormControl('', Validators.required),
+    tasks: new FormControl([]),
     userstoryEditAssigneeDTO: new FormGroup({
       user_id: new FormControl('', Validators.required),
       userstory_id: new FormControl('', Validators.required),
     }),
   });
-    
+
   collectFormData() {
-    console.log(this.editUserstoryFormGroup.value);
     this.apiRequestService.editAnUserstory(this.editUserstoryFormGroup.value);
   }
-  
+
   ngOnInit(): void {
     this.route.params.subscribe((params) => {
       this.apiRequestService.getUserstoryData(params['userstoryid']).subscribe((data) => {
+        const taskIds = data.tasks.map((task: { id: number }) => task.id);
+
+  
         this.editUserstoryFormGroup.setValue({
           description: data.description,
           name: data.name,
           complexity: data.complexity,
           currentStage: data.currentStage,
+          tasks: taskIds,
           userstoryEditAssigneeDTO: {
             user_id: data.userId,
             userstory_id: data.userstoryId,
@@ -47,6 +51,8 @@ export class EdituserstoryComponent implements OnInit {
       });
     });
   }
-}  
+  
+  }
+
 
 

@@ -13,8 +13,9 @@ export class CreateuserstoryComponent {
     description: new FormControl('', Validators.required),
     name: new FormControl('', Validators.required),
     currentStage: new FormControl('', Validators.required),
+    tasks: new FormControl([])
   });
-  
+
 
   collectFormData() {
     this.apiRequestService.createAUserstory(this.createUserstoryFormGroup.value);
