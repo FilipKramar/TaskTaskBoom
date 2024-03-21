@@ -1,8 +1,17 @@
-# Use the official OpenJDK 17 image as the base image
-FROM openjdk:17 AS api
+FROM maven:latest AS build
 
-# Copy the JAR file from the local filesystem into the container's /api directory
-COPY ./target/ProjektPraksa-0.0.1-SNAPSHOT.jar ./api.jar
+WORKDIR /app
 
-# Specify the entry point for the container to run your Java application
-ENTRYPOINT ["java", "-jar", "api.jar"]
+COPY pom.xml .
+COPY src ./src
+
+RUN mvn clean package -DskipTests
+
+
+FROM openjdk:21-slim AS runtime
+
+WORKDIR /app
+
+COPY --from=build /app/target/*.jar app/app.jar
+
+CMD ["java", "-jar", "app/app.jar"]
