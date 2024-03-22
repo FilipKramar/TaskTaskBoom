@@ -61,22 +61,45 @@ aio/content/examples/.DS_Store
 
 # Ignore cache created with the Angular CLI.
 .angular/
-# Compiled class file
-*.class
-
-# Log files
-*.log
-
-# Compiled bytecode
-/target/
-
-# Maven build directory
-/build/
-
-# IntelliJ IDEA files
-.idea/
-
-
-# NetBeans files
-.nb-gradle/
-build/
+*#
+*.iml
+*.ipr
+*.iws
+*.jar
+*.sw?
+*~
+.#*
+.*.md.html
+.DS_Store
+.attach_pid*
+.classpath
+.factorypath
+.gradle
+.metadata
+.project
+.recommenders
+.settings
+.springBeans
+.vscode
+/code
+MANIFEST.MF
+_site/
+activemq-data
+bin
+build
+!/**/src/**/bin
+!/**/src/**/build
+build.log
+dependency-reduced-pom.xml
+dump.rdb
+interpolated*.xml
+lib/
+manifest.yml
+out
+overridedb.*
+target
+.flattened-pom.xml
+secrets.yml
+.gradletasknamecache
+.sts4-cache
+.git-hooks/
