@@ -31,8 +31,8 @@ public class UserController {
 }
 
         @PostMapping("/register")
-    public ResponseEntity<List<User>> registerUsers(@RequestBody List<UserRegistrationDTO> request){
-        return ResponseEntity.ok(userService.registerUsers(request));
+    public ResponseEntity<User> registerUsers(@RequestBody UserRegistrationDTO request){
+        return ResponseEntity.ok(userService.registerUser(request));
 
     }
 }
